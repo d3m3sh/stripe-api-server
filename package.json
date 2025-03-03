@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/d3m3sh/stipe-api-server#readme",
   "dependencies": {
+    "@fastify/cors": "^11.0.0",
     "dotenv": "^16.4.7",
     "fastify": "^5.2.1",
     "stripe": "^17.7.0"

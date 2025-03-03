@@ -15,6 +15,12 @@ if (!process.env ||
 const fastify = require("fastify")({ logger: true });
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
+fastify.register(require('@fastify/cors'), {
+  origin: '*',
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+});
+
 fastify.get("/api/publishable-key", () => {
   return { publishable_key: process.env.STRIPE_PUBLISHABLE_KEY };
 });
