@@ -1,0 +1,29 @@
+{
+  "name": "stipe-api-server",
+  "version": "1.0.0",
+  "description": "stripe api server",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/d3m3sh/stipe-api-server.git"
+  },
+  "keywords": [
+    "stripe",
+    "api"
+  ],
+  "author": "julien moucadel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/d3m3sh/stipe-api-server/issues"
+  },
+  "homepage": "https://github.com/d3m3sh/stipe-api-server#readme",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "fastify": "^5.2.1",
+    "stripe": "^17.7.0"
+  }
+}
