@@ -15,11 +15,11 @@ if (!process.env ||
 const fastify = require("fastify")({ logger: true });
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
-fastify.get("/publishable-key", () => {
+fastify.get("/api/publishable-key", () => {
   return { publishable_key: process.env.STRIPE_PUBLISHABLE_KEY };
 });
 
-fastify.post("/create-payment", async (request, reply) => {
+fastify.post("/api/create-payment", async (request, reply) => {
   const { amount } = request.body;
   if (!amount) {
     return reply.code(400).send({ error: "Amount is required" });
