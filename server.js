@@ -32,15 +32,18 @@ fastify.post("/api/create-payment", async (request, reply) => {
   return { client_secret: paymentIntent.client_secret };
 });
 
-const start = async () => {
-  const port = process.env.PORT_SERVER ? process.env.PORT_SERVER : 8080
-  try {
-    await fastify.listen({port});
-    console.log(`Server listening on port ${port}`);
-  } catch (err) {
-    fastify.log.error(err);
-    process.exit(2);
-  }
+const start = () => {
+  const port = process.env.PORT_SERVER ? process.env.PORT_SERVER : 8080;
+    fastify.listen({
+      port: port,
+      host: '0.0.0.0'
+    }, (err, address) => {
+      if (err) {
+        fastify.log.error(err);
+        process.exit(2);
+      }
+      fastify.log.info(`Server listening at ${address}`);
+    });
 };
 
 start();
